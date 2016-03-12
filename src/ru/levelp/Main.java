@@ -44,7 +44,7 @@ public class Main {
         JButton fontDown = new JButton("Font -");
         JButton clear = new JButton("Clear");
         JTextField size = new JTextField();
-        size.setText(String.valueOf(i));
+        size.setText("Font size " + i);
 
         bar.add(size);
         bar.addSeparator();
@@ -59,18 +59,16 @@ public class Main {
         fontUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Font font1 = new Font("TimesRoman", Font.PLAIN, i++);
-                text.setFont(font1);
-                size.setText(String.valueOf(i));
+                text.setFont(new Font("TimesRoman", Font.PLAIN, ++i));
+                size.setText("Font size " + i);
             }
         });
 
         fontDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Font font2 = new Font("TimesRoman", Font.PLAIN, i--);
-                text.setFont(font2);
-                size.setText(String.valueOf(i));
+                text.setFont(new Font("TimesRoman", Font.PLAIN, --i));
+                size.setText("Font size " + i);
             }
         });
 
