@@ -3,7 +3,6 @@ package ru.levelp;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -11,7 +10,7 @@ import javax.swing.*;
  */
 public class Main {
 
-    private static int i;
+    private static int fontSize;
 
     public static void main(String[] args) {
 
@@ -29,8 +28,8 @@ public class Main {
         JTextArea text = new JTextArea();
         mainFrame.add(BorderLayout.CENTER, text);
 
-        i = 12;
-        Font font = new Font("TimesRoman", Font.PLAIN, i);
+        fontSize = 12;
+        Font font = new Font("TimesRoman", Font.PLAIN, fontSize);
         text.setFont(font);
 
         text.setLineWrap(true); // перенос строки
@@ -44,7 +43,7 @@ public class Main {
         JButton fontDown = new JButton("Font -");
         JButton clear = new JButton("Clear");
         JTextField size = new JTextField();
-        size.setText("Font size " + i);
+        size.setText("Font size " + fontSize);
 
         bar.add(size);
         bar.addSeparator();
@@ -59,16 +58,16 @@ public class Main {
         fontUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                text.setFont(new Font("TimesRoman", Font.PLAIN, ++i));
-                size.setText("Font size " + i);
+                text.setFont(new Font("TimesRoman", Font.PLAIN, ++fontSize));
+                size.setText("Font size " + fontSize);
             }
         });
 
         fontDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                text.setFont(new Font("TimesRoman", Font.PLAIN, --i));
-                size.setText("Font size " + i);
+                text.setFont(new Font("TimesRoman", Font.PLAIN, --fontSize));
+                size.setText("Font size " + fontSize);
             }
         });
 
