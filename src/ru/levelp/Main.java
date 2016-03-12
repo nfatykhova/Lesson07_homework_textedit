@@ -11,7 +11,7 @@ import javax.swing.*;
  */
 public class Main {
 
-    private static int i = 12;
+    private static int i;
 
     public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class Main {
         JTextArea text = new JTextArea();
         mainFrame.add(BorderLayout.CENTER, text);
 
-
+        i = 12;
         Font font = new Font("TimesRoman", Font.PLAIN, i);
         text.setFont(font);
 
@@ -40,12 +40,19 @@ public class Main {
 
         JToolBar bar = new JToolBar(); // тулбар с кнопками
 
-        JButton fontUp = new JButton("Font PLUS"); // кнопки +/- на тулбаре
-        JButton fontDown = new JButton("Font MINUS");
+        JButton fontUp = new JButton("Font +"); // кнопки +/- на тулбаре
+        JButton fontDown = new JButton("Font -");
+        JButton clear = new JButton("Clear");
+        JTextField size = new JTextField();
+        size.setText(String.valueOf(i));
 
+        bar.add(size);
+        bar.addSeparator();
         bar.add(fontUp);
         bar.addSeparator();
         bar.add(fontDown);
+        bar.addSeparator();
+        bar.add(clear);
 
         mainFrame.add(BorderLayout.NORTH, bar);
 
@@ -54,14 +61,23 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 Font font1 = new Font("TimesRoman", Font.PLAIN, i++);
                 text.setFont(font1);
+                size.setText(String.valueOf(i));
             }
         });
 
         fontDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Font font1 = new Font("TimesRoman", Font.PLAIN, i--);
-                text.setFont(font1);
+                Font font2 = new Font("TimesRoman", Font.PLAIN, i--);
+                text.setFont(font2);
+                size.setText(String.valueOf(i));
+            }
+        });
+
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                text.setText(null);
             }
         });
 
