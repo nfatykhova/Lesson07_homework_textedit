@@ -55,6 +55,8 @@ public class Main {
             String text;
             while ((text = reader.readLine()) != null) {
          //       text ; вывести текст
+                // settext для jtextarea или заюзать другой эл-т
+
             }
 
         } catch (FileNotFoundException exc) {
@@ -138,10 +140,4 @@ public class Main {
         mainFrame.setVisible(true);
 
     }
-
-    /* С помощью класса JPanel и GridLayout нарисовать калькулятор подобный стандартному виндовскому.
-    Меня интересует в первую очередь расположение компонентов, а не цвета и шрифты.
-    -> писать цифры в поле при нажатии кнопки
-     */
-
 }
