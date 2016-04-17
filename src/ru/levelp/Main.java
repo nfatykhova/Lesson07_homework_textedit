@@ -15,13 +15,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-//    1) Создать текстовый редактор:
-//    - должно быть текстовое поле (JTextArea)
-//    - должны быть кнопки увеличения и уменьшения шрифта (гугл)
-//    - дожна быть кнопка Clear
-//    * Добавить вертикальный скролл
-//    * Добавить отступы между компонентами
-
         /*
         save, save as, open - joptiondialog
          */
@@ -29,6 +22,25 @@ public class Main {
         JFrame mainFrame = new JFrame("Text Edit");
         mainFrame.setBounds(200, 200, 400, 400);
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenu editMenu = new JMenu("Edit");
+        JMenuItem newFileMenuItem = new JMenuItem("New");
+        JMenuItem openFileMenuItem = new JMenuItem("Open");
+        JMenuItem saveFileMenuItem = new JMenuItem("Save");
+        JMenuItem saveAsFileMenuItem = new JMenuItem("Save As");
+        JMenuItem clearEditMenuItem = new JMenuItem("Clear");
+
+        fileMenu.add(newFileMenuItem);
+        fileMenu.add(openFileMenuItem);
+        fileMenu.add(saveFileMenuItem);
+        fileMenu.add(saveAsFileMenuItem);
+
+        editMenu.add(clearEditMenuItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
 
         JTextArea text = new JTextArea();
         mainFrame.add(BorderLayout.CENTER, text);
